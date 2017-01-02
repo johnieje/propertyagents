@@ -2,7 +2,16 @@
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="{{ url('account-image',['filename' => $user->avatar])}}" class="img-responsive" alt="">
+                    @if(Storage::disk('public')->has($user->name . '-' . $user->id . '-' . '.jpg'))
+		            <img src="{{ url('account-image',['filename' => $user->name . '-' . $user->id . '-' . '.jpg'])}}" alt="" class="img-responsive">
+		            <div class="remove">
+		                <a href="{{ url('/account/delete-image', ['filename' => $user->name . '-' . $user->id . '-' . '.jpg' ]) }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+		            </div>    
+		            @else
+		                <div class="">
+		                    <img src="{{ url('account-image', ['filename' => $user->avatar])}}" alt="" class="img-responsive">
+		                </div>
+		            @endif  
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -38,16 +47,18 @@
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>
-						<li>
-							<a href="#" target="_blank">
-							<i class="glyphicon glyphicon-ok"></i>
-							Tasks </a>
+						@if($user->role == 1)
+						<li class="{{ Route::currentRouteName() == 'agents' ? 'active' : '' }}">
+							<a href="{{ url('/agents') }}">
+							<i class="glyphicon glyphicon-th-list"></i>
+							Agents </a>
 						</li>
-						<li>
-							<a href="#">
-							<i class="glyphicon glyphicon-flag"></i>
-							Help </a>
+						<li class="{{ Route::currentRouteName() == 'users' ? 'active' : '' }}">
+							<a href="{{ url('/users') }}">
+							<i class="glyphicon glyphicon-list"></i>
+							Users </a>
 						</li>
+						@endif
 					</ul>
 				</div>
 				<!-- END MENU -->
