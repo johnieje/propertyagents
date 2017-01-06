@@ -30,7 +30,7 @@
 			      <tr>
 			        <td>{{ $appuser->name }}</td>
 			        <td>{{ $appuser->email }}</td>
-			        <td>{{ $appuser->created_at }}</td>
+			        <td>{{ Timediff::timeDiff($appuser->created_at) }}</td>
 			      </tr>
 			    @endforeach
 			    </tbody>

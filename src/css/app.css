@@ -163,3 +163,5 @@ body {
 .center {
   
 }
+
+.hideoption { display:none; visibility:hidden; height:0; font-size:0; }

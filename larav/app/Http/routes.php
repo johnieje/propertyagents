@@ -19,10 +19,12 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/users', 'HomeController@getUsersList');
+
 Route::get('/account', [
 	'uses' => 'HomeController@account',
 	'as' => 'account'
-	]);
+]);
 
 Route::get('/account-image/{filename}',[
 	'uses' => 'HomeController@getUserImage',
@@ -84,7 +86,32 @@ Route::get('/delete-agent/{id}',[
         'as' => 'delete-agent'
 ]);
 
-Route::get('users',[
-	'uses' => 'HomeController@getUsersList',
-	'as' => 'users-list'
+Route::get('/add-property/{id}',[
+	'uses' => 'PropertyController@getAddProperty',
+	'as' => 'add-property'
+]);
+
+Route::post('/propertysave',[
+	'uses' => 'PropertyController@postPropertySave',
+	'as' => 'propertysave'
+]);
+
+Route::get('/property-list/{id}',[
+	'uses' => 'PropertyController@getPropertyList',
+	'as' => 'property-list'
+]);
+
+Route::get('/edit-property/{agent_id}/{property_id}',[
+	'uses' => 'PropertyController@getEditProperty',
+	'as' => 'edit-property'
+]);
+
+Route::post('/property-update',[
+	'uses' => 'PropertyController@postUpdateProperty',
+	'as' => "update-property"
+]);
+
+Route::get('/delete-property/{id}',[
+        'uses' => 'PropertyController@getDeleteProperty',
+        'as' => 'delete-property'
 ]);

@@ -96,6 +96,7 @@ class AgentController extends Controller
 		$agent->contact = $request['contact'];
 		$agent->email = $request['email'];
 		$agent->website = $request['website'];
+		$agent->status = $request['status'];
 
 		if($request->hasFile('image')){
 	        $file = $request->file('image');

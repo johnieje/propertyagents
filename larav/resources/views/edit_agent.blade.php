@@ -48,6 +48,20 @@
 			            <input type="file" class="form-control-file" name="image" id="image" aria-describedby="fileHelp">
 	                	<small id="fileHelp" class="form-text text-muted">{{ $agent->logo }}</small>
 		            </div>
+		            <div class="form-group">
+		            	<label for="name">Status</label>
+		            	<select class="form-control" name="status" id="status">
+		            		<option selected="selected disabled" class="hideoption" value="{{ $agent->status }}">
+		            			@if( $agent->status == 0)
+		            				Inactive
+		            			@else
+		            				Active
+		            			@endif
+		            		</option>
+						  	<option value="1">Active</option>
+						  	<option value="0">Inactive</option>
+						</select>
+		            </div>	
 		            <input type="hidden" name="agent_id" value="{{ $agent->id }}" >
 			   		<button type="submit" class="btn btn-primary">Save changes</button>
 			   </form>
