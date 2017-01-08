@@ -13,15 +13,15 @@
 		<!-- END ACCOUNT SIDEBAR -->
 		<div class="col-md-9">
             <div class="profile-content">
-	            
+	            <div class="row_hearder">
 	            	<header>
-					   	<h3>Properties
+					   	<h3>Properties for {{ $agent->name }}
 					   		<a href="{{ url('add-property',['id' => $agent->id]) }}" role="button" class="btn btn-primary pull-right">
 		  						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Property
 							</a>
 						</h3>
 					</header>
-	            
+	            </div>
 				<div class="message">@include('includes.message-block')</div>
 				
 					<div class="table-responsive">
@@ -57,7 +57,7 @@
 					    </tbody>
 					  </table>
 					</div>
-			   
+				
 			  <div class="center">
 				   	<div class="pagination"> {{ $properties->links() }} </div>
 			  </div>

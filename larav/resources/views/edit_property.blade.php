@@ -13,13 +13,15 @@
 		<!-- END ACCOUNT SIDEBAR -->
 		<div class="col-md-9">
             <div class="profile-content">
-			<header>
-				<h3>Edit > {{ $property->name }}
-				   	<a href="{{ url('property-list',['id' => $agent->id]) }}" role="button" class="btn btn-warning pull-right">
-	  					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Back to Properties
-					</a>
-				</h3>
-			</header>  
+	            <div class="row_hearder">
+					<header>
+						<h3>Edit > {{ $property->name }}
+						   	<a href="{{ url('property-list',['id' => $agent->id]) }}" role="button" class="btn btn-warning pull-right">
+			  					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Back to Properties
+							</a>
+						</h3>
+					</header> 
+				</div> 
 			@include('includes.message-block')
 				<form action="{{ url('/property-update') }}" method="post" enctype="multipart/form-data">
 	              {!! csrf_field() !!}

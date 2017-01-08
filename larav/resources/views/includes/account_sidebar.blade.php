@@ -4,9 +4,7 @@
 				<div class="profile-userpic">
                     @if(Storage::disk('public')->has($user->name . '-' . $user->id . '-' . '.jpg'))
 		            <img src="{{ url('account-image',['filename' => $user->name . '-' . $user->id . '-' . '.jpg'])}}" alt="" class="img-responsive">
-		            <div class="remove">
-		                <a href="{{ url('/account/delete-image', ['filename' => $user->name . '-' . $user->id . '-' . '.jpg' ]) }}"><i class="fa fa-times" aria-hidden="true"></i></a>
-		            </div>    
+		                
 		            @else
 		                <div class="">
 		                    <img src="{{ url('account-image', ['filename' => $user->avatar])}}" alt="" class="img-responsive">
@@ -28,12 +26,7 @@
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
-				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">Follow</button>
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
-				</div>
-				<!-- END SIDEBAR BUTTONS -->
+				
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav" id="account_menu">

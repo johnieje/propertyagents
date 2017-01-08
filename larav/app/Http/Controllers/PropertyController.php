@@ -82,6 +82,11 @@ class PropertyController extends Controller
     }
 
     public function getDeleteProperty($id){
-        return "it works";
+        $property = Property::where('id', $id)->get()->first();
+
+        if($property->delete()){
+            $message_success = "Property has been deleted successfully";
+            return redirect()->route('property-list', ['id' => $property->agent_id, 'user' => Auth::user() ])->with(['message-success' => $message_success]);
+        }
     }
 }

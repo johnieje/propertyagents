@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/users', 'HomeController@getUsersList');
 
 Route::get('/account', [
-	'uses' => 'HomeController@account',
+	'uses' => 'AgentController@account',
 	'as' => 'account'
 ]);
 

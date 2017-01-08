@@ -15,8 +15,13 @@ use Illuminate\Pagination\Paginator;
 class AgentController extends Controller
 {
     public function getAgents(){
-    	$agents = Agent::orderBy('created_at', 'DESC')->paginate(3);
+    	$agents = Agent::orderBy('created_at', 'DESC')->paginate(5);
     	return view('agents', ['agents' => $agents, 'user' => Auth::user()]);
+    }
+
+    public function account(){
+    	$agents = Agent::orderBy('created_at', 'DESC')->paginate(5);
+    	return view('account', ['agents' => $agents, 'user' => Auth::user()]);
     }
 
     public function getAgentLogo($filename){
